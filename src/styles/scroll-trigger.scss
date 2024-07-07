@@ -1,12 +1,12 @@
 .invisible {
   opacity: 0;
   transition: 300ms;
-  transform: translateY(-5rem);
+  transform: translateY(5rem);
 }
 
 .slide-in {
   opacity: 1;
-  transition-timing-function: ease-out;
-  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  transition-duration: 2s;
   transform: translateY(0);
 }
