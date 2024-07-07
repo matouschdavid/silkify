@@ -45,13 +45,11 @@ function checkVisibility(entries: IntersectionObserverEntry[]): void {
     }
 }
 
-export function initializeScrollTrigger(): void {
-    const prefersReducedMotion = window.matchMedia(
-        `(prefers-reduced-motion: reduce)`
-    ).matches;
+const prefersReducedMotion = window.matchMedia(
+    `(prefers-reduced-motion: reduce)`
+).matches;
 
-    if (!prefersReducedMotion) {
-        processSlideIn();
-        processAddClassWhenVisible();
-    }
+if (!prefersReducedMotion) {
+    processSlideIn();
+    processAddClassWhenVisible();
 }

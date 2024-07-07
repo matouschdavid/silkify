@@ -18,10 +18,8 @@ function calculateAnimationTimings(): void {
     });
 }
 
-export function initializeSideScroll(): void {
-    calculateAnimationTimings();
+calculateAnimationTimings();
 
-    window.addEventListener("resize", () => {
-        calculateAnimationTimings();
-    });
-}
+window.addEventListener("resize", () => {
+    calculateAnimationTimings();
+});
