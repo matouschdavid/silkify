@@ -8,7 +8,7 @@ export default [
     {
         input: 'src/animations/scroll-trigger.ts',
         output: {
-            file: 'dist/animations/scroll-trigger.js',
+            file: 'dist/scroll-trigger.js',
             format: 'esm',
         },
         plugins: [
@@ -23,7 +23,7 @@ export default [
                 presets: ['@babel/preset-env'],
             }),
             scss({
-                fileName: 'scroll-trigger.css',
+                fileName: 'styles/scroll-trigger.css',
                 outputStyle: 'compressed',
             }),
         ],
@@ -31,7 +31,7 @@ export default [
     {
         input: 'src/animations/side-scroll.ts',
         output: {
-            file: 'dist/animations/side-scroll.js',
+            file: 'dist/side-scroll.js',
             format: 'esm',
         },
         plugins: [
@@ -46,32 +46,9 @@ export default [
                 presets: ['@babel/preset-env'],
             }),
             scss({
-                fileName: 'side-scroll.css',
+                fileName: 'styles/side-scroll.css',
                 outputStyle: 'compressed',
             }),
         ],
-    },
-    {
-        input: 'src/index.ts',
-        output: {
-            file: 'dist/silkify.esm.js',
-            format: 'esm',
-        },
-        plugins: [
-            resolve(),
-            commonjs(),
-            typescript({
-                tsconfig: './tsconfig.json',
-            }),
-            babel({
-                babelHelpers: 'bundled',
-                exclude: 'node_modules/**',
-                presets: ['@babel/preset-env'],
-            }),
-            scss({
-                fileName: 'silkify.css',
-                outputStyle: 'compressed',
-            }),
-        ],
-    },
+    }
 ];
