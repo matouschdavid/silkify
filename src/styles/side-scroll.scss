@@ -1,0 +1,41 @@
+.horizontal-scroll {
+  position: relative;
+  height: calc((var(--content-height) + 100vh) * var(--scroll-speed));
+  overflow-x: clip;
+
+  &.to-left {
+    --scroll-sideways-animation: scroll-left;
+  }
+
+  &.to-right {
+    --scroll-sideways-animation: scroll-right;
+  }
+
+  .horizontal-content {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: fit-content;
+    animation-name: var(--scroll-sideways-animation);
+    animation-timeline: scroll(root);
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    animation-range-start: var(--scroll-start);
+    animation-range-end: var(--scroll-end);
+  }
+}
+
+@keyframes scroll-left {
+  from {
+    translate: calc(-100% + 100vw) 0;
+  }
+  to {
+    translate: 0 0;
+  }
+}
+
+@keyframes scroll-right {
+  to {
+    translate: calc(-100% + 100vw) 0;
+  }
+}

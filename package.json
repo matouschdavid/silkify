@@ -1,22 +1,29 @@
 {
   "name": "silkify",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "A modular library for smooth animations, including slide-in animations, side-scrolling sections, and smooth scrolling.",
+  "main": "dist/silkify.cjs.js",
+  "module": "dist/silkify.esm.js",
+  "browser": "dist/silkify.umd.js",
   "scripts": {
-    "build": "tsc"
+    "build": "rollup -c",
+    "prepare": "npm run build"
   },
-  "main": "dist/index.js",
-  "types": "types/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "files": [
-    "dist",
-    "types"
+    "dist"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/matouschdavid/silkify.git"
   },
   "keywords": [
-    "animation"
+    "animation",
+    "scroll",
+    "smooth",
+    "slide",
+    "side-scrolling",
+    "typescript"
   ],
   "author": "David Matousch",
   "license": "MIT",
@@ -24,7 +31,20 @@
     "url": "https://github.com/matouschdavid/silkify/issues"
   },
   "homepage": "https://github.com/matouschdavid/silkify#readme",
-  "dependencies": {
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "rollup": "^4.18.0",
+    "rollup-plugin-scss": "^4.0.0",
+    "sass": "^1.77.6",
     "typescript": "^5.5.3"
+  },
+  "type": "module",
+  "dependencies": {
+    "tslib": "^2.6.3"
   }
 }

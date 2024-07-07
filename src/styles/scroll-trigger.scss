@@ -1,0 +1,12 @@
+.invisible {
+  opacity: 0;
+  transition: 300ms;
+  transform: translateY(-5rem);
+}
+
+.slide-in {
+  opacity: 1;
+  transition-timing-function: ease-out;
+  transition-duration: 500ms;
+  transform: translateY(0);
+}
