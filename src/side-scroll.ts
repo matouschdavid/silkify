@@ -1,4 +1,4 @@
-import "../styles/side-scroll.scss";
+import "./styles/side-scroll.scss";
 
 function calculateAnimationTimings(): void {
     const horizontalScroller = document.querySelectorAll<HTMLElement>(".horizontal-scroll");

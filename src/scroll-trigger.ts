@@ -1,4 +1,4 @@
-import "../styles/scroll-trigger.scss";
+import "./styles/scroll-trigger.scss";
 
 function processSlideIn(): void {
     const elementsToAnimate = document.querySelectorAll<HTMLElement>("[slide-up]");

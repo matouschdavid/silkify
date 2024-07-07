@@ -6,7 +6,7 @@ import scss from 'rollup-plugin-scss';
 
 export default [
     {
-        input: 'src/animations/scroll-trigger.ts',
+        input: 'src/scroll-trigger.ts',
         output: {
             file: 'dist/scroll-trigger.js',
             format: 'esm',
@@ -23,13 +23,13 @@ export default [
                 presets: ['@babel/preset-env'],
             }),
             scss({
-                fileName: 'styles/scroll-trigger.css',
+                fileName: 'scroll-trigger.css',
                 outputStyle: 'compressed',
             }),
         ],
     },
     {
-        input: 'src/animations/side-scroll.ts',
+        input: 'src/side-scroll.ts',
         output: {
             file: 'dist/side-scroll.js',
             format: 'esm',
@@ -46,7 +46,7 @@ export default [
                 presets: ['@babel/preset-env'],
             }),
             scss({
-                fileName: 'styles/side-scroll.css',
+                fileName: 'side-scroll.css',
                 outputStyle: 'compressed',
             }),
         ],
