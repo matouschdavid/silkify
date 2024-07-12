@@ -1,5 +1,16 @@
 import "./styles/scroll-trigger.scss";
 
+const intersectionObserver = createIntersectionObserver();
+
+const prefersReducedMotion = window.matchMedia(
+    `(prefers-reduced-motion: reduce)`
+).matches;
+
+if (!prefersReducedMotion) {
+    processFadeUp();
+    processScrollReveal();
+}
+
 function parseScrollReveal(element: HTMLElement): { from: string, to: string } {
     const value = element.getAttribute("scroll-reveal");
 
@@ -35,9 +46,20 @@ function createIntersectionObserver(): IntersectionObserver {
     );
 }
 
-function processScrollReveal(): void {
-    const intersectionObserver = createIntersectionObserver();
+function processFadeUp(): void {
+    const elementsToAnimate = document.querySelectorAll<HTMLElement>("[fade-up]");
+    elementsToAnimate.forEach((element) => {
+        element.classList.add("invisible-down");
+        element.removeAttribute("fade-up");
 
+        element.setAttribute("scroll-reveal-from", "invisible-down");
+        element.setAttribute("scroll-reveal-to", "easing");
+
+        intersectionObserver.observe(element);
+    });
+}
+
+function processScrollReveal(): void {
     const elementsToAnimate = document.querySelectorAll<HTMLElement>("[scroll-reveal]");
     elementsToAnimate.forEach((element) => {
         const {from, to} = parseScrollReveal(element);
@@ -71,12 +93,4 @@ function checkVisibility(entries: IntersectionObserverEntry[]): void {
             }
         }
     }
-}
-
-const prefersReducedMotion = window.matchMedia(
-    `(prefers-reduced-motion: reduce)`
-).matches;
-
-if (!prefersReducedMotion) {
-    processScrollReveal();
 }
