@@ -14,24 +14,23 @@ function processSideScroll(): void {
   const elementsToAnimate =
     document.querySelectorAll<HTMLElement>("[scroll-direction]");
   elementsToAnimate.forEach((element) => {
-    const direction = element.dataset.scrollDirection!;
+    const originalParent = element.parentElement!;
+    const direction = element.getAttribute("scroll-direction")!;
     const scrollSpeed = parseInt(element.getAttribute("scroll-speed")!) || 1;
+    element.removeAttribute("scroll-direction");
+    element.removeAttribute("scroll-speed");
 
     const scrollContainer = document.createElement("div");
     scrollContainer.classList.add("horizontal-scroll");
     scrollContainer.classList.add(`to-${direction}`);
-    scrollContainer.dataset.scrollSpeed = scrollSpeed.toString();
-
-    element.removeAttribute("scroll-direction");
-    element.removeAttribute("scroll-speed");
+    scrollContainer.setAttribute("scroll-speed", scrollSpeed.toString());
 
     const innerContainer = document.createElement("div");
     innerContainer.classList.add("horizontal-scroll-inner");
+
+    originalParent.replaceChild(scrollContainer, element);
     innerContainer.appendChild(element);
-
     scrollContainer.appendChild(innerContainer);
-
-    element.parentElement!.replaceChild(scrollContainer, element);
 
     calculateAnimationTiming(scrollContainer);
 

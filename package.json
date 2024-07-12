@@ -1,6 +1,6 @@
 {
   "name": "silkify",
-  "version": "2.2.0",
+  "version": "2.2.2",
   "description": "A modular library for smooth animations, including scroll-trigger animations and side-scrolling sections.",
   "scripts": {
     "build": "rollup -c",
